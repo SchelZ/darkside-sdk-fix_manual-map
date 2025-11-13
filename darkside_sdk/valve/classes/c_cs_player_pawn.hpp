@@ -294,11 +294,11 @@ public:
 
 	void set_prediction_command( c_user_cmd* user_cmd ) {
 
-		vmt::call_virtual<void>( this, 38, user_cmd );
+		vmt::call_virtual<void>( this, 39, user_cmd );
 	}
 
 	void reset_prediction_command( ) {
-		vmt::call_virtual<void>( this, 39 );
+		vmt::call_virtual<void>( this, 40 );
 	}
 };
 
@@ -353,7 +353,7 @@ public:
 	float get_inaccuracy( ) {
         float x = .0f, y = .0f;
 
-        using fn_get_inaccuracy_t = float(__fastcall)(void, float, float);
+        using fn_get_inaccuracy_t = float(__fastcall)(void*, float*, float*);
 
         static fn_get_inaccuracy_t fn = reinterpret_cast<fn_get_inaccuracy_t>( g_opcodes->scan( g_modules->m_modules.client_dll.get_name( ), "48 89 5C 24 ? 55 56 57 48 81 EC ? ? ? ? 44 0F 29 84 24"   ) );
 
